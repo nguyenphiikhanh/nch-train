@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::prefix('/')->group(function(){
+    Route::get('', "HomeController@index")->name('index');
+    Route::get('login','LoginController@index')->name('login');
+    Route::post('login','LoginController@login')->name('login_account');
 });
